@@ -3,7 +3,7 @@ package com.prayer.api.scraper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ScraperTest {
 
@@ -17,34 +17,26 @@ class ScraperTest {
 
     @Test
     void startConnection() {
-
+        assertThat(scraper.startConnection()).isTrue();
     }
 
     @Test
     void getPrayerHtmlTable() {
+        assertThat(scraper.getPrayerHtmlTable()).isNotEmpty();
     }
 
     @Test
-    void getCurrentPrayer() {
-    }
+    void getCurrentPrayer() {}
 
     @Test
     void getUrl() {
-    }
-
-    @Test
-    void getUrlConnection() {
+        assertThat(scraper.getUrl()).isEqualTo(testUrl);
     }
 
     @Test
     void setUrl() {
-    }
-
-    @Test
-    void setPrayers() {
-    }
-
-    @Test
-    void setUrlConnection() {
+        String testUrl = "test.com";
+        scraper.setUrl(testUrl);
+        assertThat(scraper.getUrl()).isEqualTo(testUrl);
     }
 }

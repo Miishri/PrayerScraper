@@ -12,11 +12,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-@Getter
-@Setter
 public class Scraper {
 
+    @Setter
+    @Getter
     private String url;
+
+    @Getter
     private List<HashMap<String, String>> prayers;
 
     private Document urlConnection;
@@ -47,8 +49,21 @@ public class Scraper {
         return this.urlConnection.select("table.prayer-times.active").first();
     }
 
-    private List<HashMap<String, String>> getPrayers() {
+    private List<HashMap<String, String>> prayers() {
+
+
 
         return prayers;
     }
+
+
+    public static void main(String[] args) {
+        Scraper scraper = new Scraper("https://www.muslimpro.com/en/find?coordinates=59.32932349999999%2C18.0685808&country_code=SE&country_name=Sweden&city_name=Stockholm&date=2024-09&convention=precalc");
+        scraper.startConnection();
+
+        System.out.println(
+            scraper.getPrayerHtmlTable()
+        );
+    }
+
 }
