@@ -10,5 +10,6 @@ import java.util.List;
 @Data
 public class PrayerIdentifier {
     private int day;
+    private String hijriCalendar;
     private List<Prayer> prayer;
 }

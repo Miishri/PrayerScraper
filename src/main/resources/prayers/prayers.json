@@ -1,0 +1,902 @@
+[
+  {
+    "day": 1,
+    "hijriCalendar": "28 Safar 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:37"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:38"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:53"
+      },
+      {
+        "name": "Asr",
+        "time": "16:34"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:58"
+      },
+      {
+        "name": "Isha",
+        "time": "21:51"
+      }
+    ]
+  },
+  {
+    "day": 2,
+    "hijriCalendar": "29 Safar 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:38"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:40"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:53"
+      },
+      {
+        "name": "Asr",
+        "time": "16:33"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:55"
+      },
+      {
+        "name": "Isha",
+        "time": "21:50"
+      }
+    ]
+  },
+  {
+    "day": 3,
+    "hijriCalendar": "30 Safar 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:39"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:43"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:52"
+      },
+      {
+        "name": "Asr",
+        "time": "16:31"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:52"
+      },
+      {
+        "name": "Isha",
+        "time": "21:49"
+      }
+    ]
+  },
+  {
+    "day": 4,
+    "hijriCalendar": "1 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:40"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:45"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:52"
+      },
+      {
+        "name": "Asr",
+        "time": "16:29"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:49"
+      },
+      {
+        "name": "Isha",
+        "time": "21:48"
+      }
+    ]
+  },
+  {
+    "day": 5,
+    "hijriCalendar": "2 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:40"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:47"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:52"
+      },
+      {
+        "name": "Asr",
+        "time": "16:27"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:46"
+      },
+      {
+        "name": "Isha",
+        "time": "21:47"
+      }
+    ]
+  },
+  {
+    "day": 6,
+    "hijriCalendar": "3 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:41"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:49"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:51"
+      },
+      {
+        "name": "Asr",
+        "time": "16:25"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:43"
+      },
+      {
+        "name": "Isha",
+        "time": "21:46"
+      }
+    ]
+  },
+  {
+    "day": 7,
+    "hijriCalendar": "4 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:42"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:52"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:51"
+      },
+      {
+        "name": "Asr",
+        "time": "16:23"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:40"
+      },
+      {
+        "name": "Isha",
+        "time": "21:45"
+      }
+    ]
+  },
+  {
+    "day": 8,
+    "hijriCalendar": "5 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:43"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:54"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:51"
+      },
+      {
+        "name": "Asr",
+        "time": "16:21"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:37"
+      },
+      {
+        "name": "Isha",
+        "time": "21:44"
+      }
+    ]
+  },
+  {
+    "day": 9,
+    "hijriCalendar": "6 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:43"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:56"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:50"
+      },
+      {
+        "name": "Asr",
+        "time": "16:19"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:34"
+      },
+      {
+        "name": "Isha",
+        "time": "21:42"
+      }
+    ]
+  },
+  {
+    "day": 10,
+    "hijriCalendar": "7 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:44"
+      },
+      {
+        "name": "Sunrise",
+        "time": "05:58"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:50"
+      },
+      {
+        "name": "Asr",
+        "time": "16:17"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:31"
+      },
+      {
+        "name": "Isha",
+        "time": "21:38"
+      }
+    ]
+  },
+  {
+    "day": 11,
+    "hijriCalendar": "8 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:45"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:01"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:49"
+      },
+      {
+        "name": "Asr",
+        "time": "16:15"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:28"
+      },
+      {
+        "name": "Isha",
+        "time": "21:34"
+      }
+    ]
+  },
+  {
+    "day": 12,
+    "hijriCalendar": "9 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:46"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:03"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:49"
+      },
+      {
+        "name": "Asr",
+        "time": "16:13"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:25"
+      },
+      {
+        "name": "Isha",
+        "time": "21:30"
+      }
+    ]
+  },
+  {
+    "day": 13,
+    "hijriCalendar": "10 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:47"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:05"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:49"
+      },
+      {
+        "name": "Asr",
+        "time": "16:11"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:22"
+      },
+      {
+        "name": "Isha",
+        "time": "21:26"
+      }
+    ]
+  },
+  {
+    "day": 14,
+    "hijriCalendar": "11 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:47"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:08"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:48"
+      },
+      {
+        "name": "Asr",
+        "time": "16:09"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:19"
+      },
+      {
+        "name": "Isha",
+        "time": "21:22"
+      }
+    ]
+  },
+  {
+    "day": 15,
+    "hijriCalendar": "12 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:48"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:10"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:48"
+      },
+      {
+        "name": "Asr",
+        "time": "16:07"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:16"
+      },
+      {
+        "name": "Isha",
+        "time": "21:18"
+      }
+    ]
+  },
+  {
+    "day": 16,
+    "hijriCalendar": "13 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:51"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:12"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:48"
+      },
+      {
+        "name": "Asr",
+        "time": "16:05"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:13"
+      },
+      {
+        "name": "Isha",
+        "time": "21:15"
+      }
+    ]
+  },
+  {
+    "day": 17,
+    "hijriCalendar": "14 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:54"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:14"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:47"
+      },
+      {
+        "name": "Asr",
+        "time": "16:03"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:10"
+      },
+      {
+        "name": "Isha",
+        "time": "21:11"
+      }
+    ]
+  },
+  {
+    "day": 18,
+    "hijriCalendar": "15 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "03:57"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:17"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:47"
+      },
+      {
+        "name": "Asr",
+        "time": "16:01"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:07"
+      },
+      {
+        "name": "Isha",
+        "time": "21:07"
+      }
+    ]
+  },
+  {
+    "day": 19,
+    "hijriCalendar": "16 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:01"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:19"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:47"
+      },
+      {
+        "name": "Asr",
+        "time": "15:59"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:04"
+      },
+      {
+        "name": "Isha",
+        "time": "21:04"
+      }
+    ]
+  },
+  {
+    "day": 20,
+    "hijriCalendar": "17 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:04"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:21"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:46"
+      },
+      {
+        "name": "Asr",
+        "time": "15:57"
+      },
+      {
+        "name": "Maghrib",
+        "time": "19:01"
+      },
+      {
+        "name": "Isha",
+        "time": "21:00"
+      }
+    ]
+  },
+  {
+    "day": 21,
+    "hijriCalendar": "18 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:07"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:23"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:46"
+      },
+      {
+        "name": "Asr",
+        "time": "15:55"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:58"
+      },
+      {
+        "name": "Isha",
+        "time": "20:57"
+      }
+    ]
+  },
+  {
+    "day": 22,
+    "hijriCalendar": "19 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:10"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:26"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:46"
+      },
+      {
+        "name": "Asr",
+        "time": "15:53"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:55"
+      },
+      {
+        "name": "Isha",
+        "time": "20:53"
+      }
+    ]
+  },
+  {
+    "day": 23,
+    "hijriCalendar": "20 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:13"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:28"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:45"
+      },
+      {
+        "name": "Asr",
+        "time": "15:51"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:52"
+      },
+      {
+        "name": "Isha",
+        "time": "20:50"
+      }
+    ]
+  },
+  {
+    "day": 24,
+    "hijriCalendar": "21 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:16"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:30"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:45"
+      },
+      {
+        "name": "Asr",
+        "time": "15:49"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:50"
+      },
+      {
+        "name": "Isha",
+        "time": "20:46"
+      }
+    ]
+  },
+  {
+    "day": 25,
+    "hijriCalendar": "22 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:18"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:33"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:45"
+      },
+      {
+        "name": "Asr",
+        "time": "15:47"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:47"
+      },
+      {
+        "name": "Isha",
+        "time": "20:43"
+      }
+    ]
+  },
+  {
+    "day": 26,
+    "hijriCalendar": "23 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:21"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:35"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:44"
+      },
+      {
+        "name": "Asr",
+        "time": "15:44"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:44"
+      },
+      {
+        "name": "Isha",
+        "time": "20:39"
+      }
+    ]
+  },
+  {
+    "day": 27,
+    "hijriCalendar": "24 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:24"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:37"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:44"
+      },
+      {
+        "name": "Asr",
+        "time": "15:42"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:41"
+      },
+      {
+        "name": "Isha",
+        "time": "20:36"
+      }
+    ]
+  },
+  {
+    "day": 28,
+    "hijriCalendar": "25 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:27"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:39"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:44"
+      },
+      {
+        "name": "Asr",
+        "time": "15:40"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:38"
+      },
+      {
+        "name": "Isha",
+        "time": "20:33"
+      }
+    ]
+  },
+  {
+    "day": 29,
+    "hijriCalendar": "26 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:30"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:42"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:43"
+      },
+      {
+        "name": "Asr",
+        "time": "15:38"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:35"
+      },
+      {
+        "name": "Isha",
+        "time": "20:29"
+      }
+    ]
+  },
+  {
+    "day": 30,
+    "hijriCalendar": "27 Rabi'Al-Awwal 1446 AH",
+    "prayer": [
+      {
+        "name": "Fajr",
+        "time": "04:32"
+      },
+      {
+        "name": "Sunrise",
+        "time": "06:44"
+      },
+      {
+        "name": "Zuhr",
+        "time": "12:43"
+      },
+      {
+        "name": "Asr",
+        "time": "15:36"
+      },
+      {
+        "name": "Maghrib",
+        "time": "18:32"
+      },
+      {
+        "name": "Isha",
+        "time": "20:26"
+      }
+    ]
+  }
+]

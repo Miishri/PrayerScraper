@@ -1,5 +1,7 @@
 package com.prayer.api.scraper;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.prayer.api.convertor.HijriCalendarConverter;
 import com.prayer.api.model.Prayer;
 import com.prayer.api.model.PrayerIdentifier;
 import lombok.Getter;
@@ -9,9 +11,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,12 +31,13 @@ public class Scraper {
     @Getter
     private List<PrayerIdentifier> prayers;
 
-    private Document urlConnection;
+    private HijriCalendarConverter hijriCalendarConverter = new HijriCalendarConverter();
 
+    private Document urlConnection;
 
     public Scraper(String url) {
         this.url = url;
-        this.prayers = null;
+        this.prayers = new ArrayList<>();
     }
 
     public boolean startConnection() {
@@ -44,12 +52,11 @@ public class Scraper {
         return true;
     }
 
-    public Elements getPrayerHtmlTable() {
+    private Elements getPrayerHtmlTable() {
         return this.urlConnection.select("table.prayer-times * td:not(.prayertime-1)");
     }
 
-    private List<Prayer> prayers() {
-        List<PrayerIdentifier> monthPrayerList = new ArrayList<>();
+    public void loadPrayers(int month) {
         List<Prayer> dailyPrayers = new ArrayList<>();
 
         int prayerCount = 1;
@@ -59,7 +66,10 @@ public class Scraper {
             dailyPrayers.add(getTempPrayerHolder(prayerCount, prayerElement));
 
             if (isLastDailyPrayer(prayerCount)) {
-                monthPrayerList.add(new PrayerIdentifier(date, dailyPrayers));
+                prayers.add(new PrayerIdentifier(
+                        date,
+                        hijriCalendarConverter.convertToHijri(month, date),
+                        dailyPrayers));
                 date++;
 
                 prayerCount = 1;
@@ -68,12 +78,9 @@ public class Scraper {
             } else prayerCount++;
 
         }
-        monthPrayerList.stream().forEach(System.out::println);
-
-        return null;
     }
 
-    public String getPrayerName(int count) {
+    private String getPrayerName(int count) {
         switch (count){
             case 1:
                 return "Fajr";
@@ -101,13 +108,27 @@ public class Scraper {
     private boolean isLastDailyPrayer(int count) {
         return count == 6 ? true : false;
     }
+    public boolean populatePrayerJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            objectMapper.writeValue(new File("src/main/resources/prayers/prayers.json"), this.prayers);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("ERROR WHEN POPULATING JSON FILE PRAYERS DATA: " + e.getMessage());
+        }
+
+        return false;
+    }
 
 
     public static void main(String[] args) {
-        Scraper scraper = new Scraper("https://www.muslimpro.com/en/find?coordinates=59.32932349999999%2C18.0685808&country_code=SE&country_name=Sweden&city_name=Stockholm&date=2024-09&convention=precalc");
-        scraper.startConnection();
+        Scraper scraper = new Scraper("https://prayer-times.muslimpro.com/id/Waktu-sholat-Stockholm-Sweden-2673730");
 
-        scraper.prayers();
+        scraper.startConnection();
+        scraper.loadPrayers(9);
+        scraper.populatePrayerJson();
     }
 
 }
