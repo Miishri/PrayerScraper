@@ -61,16 +61,13 @@ public class Scraper {
             dailyPrayers.add(getTempPrayerHolder(prayerCount, prayerElement));
 
             if (isLastDailyPrayer(prayerCount)) {
-                PrayerIdentifier prayerIdentifier = PrayerIdentifier.builder()
+
+                prayers.add(PrayerIdentifier.builder()
                         .identifierDay(date)
                         .hijriCalendar(calendarConverter.convertToHijri(month, date))
                         .georgianCalendar(calendarConverter.convertToGeorgian(month, date))
                         .weeklyPrayers(dailyPrayers)
-                        .build();
-
-                dailyPrayers.forEach(p -> p.setPrayerIdentifier(prayerIdentifier));
-
-                prayers.add(prayerIdentifier);
+                        .build());
 
                 date++;
 
