@@ -1,42 +1,37 @@
 package com.prayer.api.scraper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prayer.api.convertor.HijriCalendarConverter;
+import com.prayer.api.convertor.CalendarConverter;
 import com.prayer.api.model.Prayer;
 import com.prayer.api.model.PrayerIdentifier;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import lombok.NoArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
+@NoArgsConstructor
 public class Scraper {
 
-    @Setter
-    @Getter
     private String url;
 
     @Getter
     private List<PrayerIdentifier> prayers;
+    @Getter
+    private List<List<PrayerIdentifier>> yearlyPrayers;
 
-    private HijriCalendarConverter hijriCalendarConverter = new HijriCalendarConverter();
+    private final CalendarConverter calendarConverter = new CalendarConverter();
 
     private Document urlConnection;
 
-    public Scraper(String url) {
-        this.url = url;
+
+    public Scraper(int month) {
+        this.url = getMonthlyPrayerUrl(month);
         this.prayers = new ArrayList<>();
     }
 
@@ -52,7 +47,7 @@ public class Scraper {
         return true;
     }
 
-    private Elements getPrayerHtmlTable() {
+    Elements getPrayerHtmlTable() {
         return this.urlConnection.select("table.prayer-times * td:not(.prayertime-1)");
     }
 
@@ -66,10 +61,17 @@ public class Scraper {
             dailyPrayers.add(getTempPrayerHolder(prayerCount, prayerElement));
 
             if (isLastDailyPrayer(prayerCount)) {
-                prayers.add(new PrayerIdentifier(
-                        date,
-                        hijriCalendarConverter.convertToHijri(month, date),
-                        dailyPrayers));
+                PrayerIdentifier prayerIdentifier = PrayerIdentifier.builder()
+                        .identifierDay(date)
+                        .hijriCalendar(calendarConverter.convertToHijri(month, date))
+                        .georgianCalendar(calendarConverter.convertToGeorgian(month, date))
+                        .weeklyPrayers(dailyPrayers)
+                        .build();
+
+                dailyPrayers.forEach(p -> p.setPrayerIdentifier(prayerIdentifier));
+
+                prayers.add(prayerIdentifier);
+
                 date++;
 
                 prayerCount = 1;
@@ -80,55 +82,39 @@ public class Scraper {
         }
     }
 
+
     private String getPrayerName(int count) {
-        switch (count){
-            case 1:
-                return "Fajr";
-            case 2:
-                return "Sunrise";
-            case 3:
-                return "Zuhr";
-            case 4:
-                return "Asr";
-            case 5:
-                return "Maghrib";
-            case 6:
-                return "Isha";
-            default:
-                return "ERROR OCCURRED WHEN COUNTING";
-        }
+        return switch (count) {
+            case 1 -> "Fajr";
+            case 2 -> "Sunrise";
+            case 3 -> "Zuhr";
+            case 4 -> "Asr";
+            case 5 -> "Maghrib";
+            case 6 -> "Isha";
+            default -> "ERROR OCCURRED WHEN COUNTING";
+        };
     }
 
     private Prayer getTempPrayerHolder(int count, Element time) {
         return Prayer.builder()
-                .name(getPrayerName(count))
-                .time(time.text()).build();
+                .prayerName(getPrayerName(count))
+                .prayerTime(time.text()).build();
     }
 
     private boolean isLastDailyPrayer(int count) {
-        return count == 6 ? true : false;
+        return count == 6;
     }
-    public boolean populatePrayerJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        try {
-            objectMapper.writeValue(new File("src/main/resources/prayers/prayers.json"), this.prayers);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("ERROR WHEN POPULATING JSON FILE PRAYERS DATA: " + e.getMessage());
+    public String getMonthlyPrayerUrl(int month) {
+        return "https://prayer-times.muslimpro.com/id/Waktu-sholat-Stockholm-Sweden-2673730?date=2024-" + month + "&convention=precalc";
+    }
+
+    public void loadYearPrayers() {
+        this.yearlyPrayers = new ArrayList<>();
+        for (int i = 1; i < 13; i++) {
+            loadPrayers(i);
+            this.yearlyPrayers.add(this.prayers);
+            this.prayers = new ArrayList<>();
         }
-
-        return false;
     }
-
-
-    public static void main(String[] args) {
-        Scraper scraper = new Scraper("https://prayer-times.muslimpro.com/id/Waktu-sholat-Stockholm-Sweden-2673730");
-
-        scraper.startConnection();
-        scraper.loadPrayers(9);
-        scraper.populatePrayerJson();
-    }
-
 }
