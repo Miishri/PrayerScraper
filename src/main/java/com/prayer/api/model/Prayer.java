@@ -1,6 +1,7 @@
 package com.prayer.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Prayer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "prayer_id")
     private Long id;
     private String prayerName;
@@ -24,5 +25,6 @@ public class Prayer {
 
     @ManyToOne
     @JoinColumn(name = "identifier_id")
+    @JsonBackReference
     private PrayerIdentifier prayerIdentifier;
 }

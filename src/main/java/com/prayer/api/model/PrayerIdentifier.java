@@ -1,5 +1,6 @@
 package com.prayer.api.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,13 +19,13 @@ import java.util.List;
 public class PrayerIdentifier {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "identifier_id")
     private Long id;
-    private int identifierDay;
     private String hijriCalendar;
     private String georgianCalendar;
 
     @OneToMany(mappedBy = "prayerIdentifier", cascade = CascadeType.ALL)
-    private List<Prayer> weeklyPrayers;
+    @JsonManagedReference
+    private List<Prayer> dailyPrayers;
 }

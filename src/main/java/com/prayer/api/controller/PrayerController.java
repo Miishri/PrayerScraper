@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +20,6 @@ public class PrayerController {
     @GetMapping("/43725")
     public PrayerIdentifier getCurrentPrayer() {
         long currentDay = LocalDate.now().getDayOfYear();
-        return prayerRepository.findAll().get(0);
+        return prayerRepository.findById(1L).get();
     }
 }

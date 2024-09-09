@@ -20,12 +20,11 @@ public class SalahLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        Scraper scraper = new Scraper(1);
+        Scraper scraper = new Scraper( prayerIdentifierRepository,prayerRepository, 1);
 
         if (prayerRepository.findAll().isEmpty()) {
             scraper.startConnection();
-            scraper.loadYearPrayers();
-
+            scraper.loadYearlyPrayers();
 
         }
     }

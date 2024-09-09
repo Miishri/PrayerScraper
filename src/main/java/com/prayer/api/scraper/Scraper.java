@@ -1,22 +1,39 @@
 package com.prayer.api.scraper;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prayer.api.convertor.CalendarConverter;
 import com.prayer.api.model.Prayer;
 import com.prayer.api.model.PrayerIdentifier;
+import com.prayer.api.repository.PrayerIdentifierRepository;
+import com.prayer.api.repository.PrayerRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
+@Component
 public class Scraper {
+
+    private PrayerIdentifierRepository prayerIdentifierRepository;
+    private PrayerRepository prayerRepository;
+
+    public Scraper(PrayerIdentifierRepository prayerIdentifierRepository, PrayerRepository prayerRepository, int month) {
+        this.prayerIdentifierRepository = prayerIdentifierRepository;
+        this.prayerRepository = prayerRepository;
+        this.url = getMonthlyPrayerUrl(month);
+        this.prayers = new ArrayList<>();
+    }
+
 
     private String url;
 
@@ -29,11 +46,6 @@ public class Scraper {
 
     private Document urlConnection;
 
-
-    public Scraper(int month) {
-        this.url = getMonthlyPrayerUrl(month);
-        this.prayers = new ArrayList<>();
-    }
 
     public boolean startConnection() {
         try {
@@ -52,33 +64,37 @@ public class Scraper {
     }
 
     public void loadPrayers(int month) {
-        List<Prayer> dailyPrayers = new ArrayList<>();
+        List<Prayer> dailyPrayerList = new ArrayList<>();
 
         int prayerCount = 1;
         int date = 1;
 
         for (Element prayerElement: getPrayerHtmlTable()) {
-            dailyPrayers.add(getTempPrayerHolder(prayerCount, prayerElement));
+            if (dateExists(month, date)) {
 
-            if (isLastDailyPrayer(prayerCount)) {
+                dailyPrayerList.add(tempPrayerHolder(prayerCount, prayerElement));
 
-                prayers.add(PrayerIdentifier.builder()
-                        .identifierDay(date)
-                        .hijriCalendar(calendarConverter.convertToHijri(month, date))
-                        .georgianCalendar(calendarConverter.convertToGeorgian(month, date))
-                        .weeklyPrayers(dailyPrayers)
-                        .build());
+                if (isLastDailyPrayer(prayerCount)) {
 
-                date++;
+                    PrayerIdentifier prayerIdentifier = prayerIdentifierRepository.save(PrayerIdentifier.builder()
+                            .hijriCalendar(calendarConverter.convertToHijri(month, date))
+                            .georgianCalendar(calendarConverter.convertToGeorgian(month, date))
+                            .build());
 
-                prayerCount = 1;
-                dailyPrayers = new ArrayList<>();
+                    dailyPrayerList.forEach(prayer -> prayer.setPrayerIdentifier(prayerIdentifier));
+                    prayerRepository.saveAll(dailyPrayerList);
 
-            } else prayerCount++;
 
+                    date++;
+
+                    prayerCount = 1;
+                    dailyPrayerList = new ArrayList<>();
+
+                } else prayerCount++;
+
+            }
         }
     }
-
 
     private String getPrayerName(int count) {
         return switch (count) {
@@ -92,7 +108,7 @@ public class Scraper {
         };
     }
 
-    private Prayer getTempPrayerHolder(int count, Element time) {
+    private Prayer tempPrayerHolder(int count, Element time) {
         return Prayer.builder()
                 .prayerName(getPrayerName(count))
                 .prayerTime(time.text()).build();
@@ -106,12 +122,23 @@ public class Scraper {
         return "https://prayer-times.muslimpro.com/id/Waktu-sholat-Stockholm-Sweden-2673730?date=2024-" + month + "&convention=precalc";
     }
 
-    public void loadYearPrayers() {
+    public void loadYearlyPrayers() {
         this.yearlyPrayers = new ArrayList<>();
         for (int i = 1; i < 13; i++) {
             loadPrayers(i);
             this.yearlyPrayers.add(this.prayers);
             this.prayers = new ArrayList<>();
         }
+    }
+
+    public boolean dateExists(int month, int date) {
+        try {
+            LocalDate.of(LocalDate.now().getYear(), month, date);
+        } catch (DateTimeException e) {
+            System.out.println("THIS DATE DOES NOT EXIST");
+            return false;
+        }
+
+        return true;
     }
 }

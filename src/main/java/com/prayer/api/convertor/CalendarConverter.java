@@ -3,6 +3,7 @@ package com.prayer.api.convertor;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.Date;
 import java.util.Locale;
 
@@ -27,11 +28,16 @@ public class CalendarConverter {
 
 
     private double calculateJDN(int month, int day) {
-        int a = (14 - month) / 12;
-        int y = CURRENT_YEAR + 4800 - a;
-        int m = month + 12 * a - 3;
+        LocalDate date = LocalDate.of(CURRENT_YEAR, month, day);
+        int y = date.getYear();
+        int m = date.getMonthValue();
+        int d = date.getDayOfMonth();
 
-        return day + ((double) (153 * m + 2) / 5) + (365 * y) + ((double) y / 4) - ((double) y / 100) + ((double) y / 400) - 32045;
+        int a = (14 - m) / 12;
+        y = y + 4800 - a;
+        m = m + 12 * a - 3;
+
+        return d + ((153 * m + 2) / 5) + (365 * y) + (y / 4) - (y / 100) + (y / 400) - 32045;
     }
 
     public String convertToHijri(int month, int day) {
@@ -66,6 +72,10 @@ public class CalendarConverter {
             System.out.println("EXCEPTION WHILE PARSING GEORGIAN DATE: " + inputDate);
         }
         return new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date).substring(0, 3);
+    }
+
+    public boolean isLeapYear(int year) {
+        return YearMonth.of(year, 2).isLeapYear();
     }
 
     private String getGeorgianMonth(int month) {

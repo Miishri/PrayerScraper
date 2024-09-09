@@ -1,0 +1,8 @@
+version: '1'
+services:
+  myapp:
+    image: stockholm-prayers/api
+    ports:
+      - "7860:7860"
+    environment:
+      JAVA_OPTS: -Dserver.port=7860
