@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/5075690944")
+@RequestMapping("/")
 public class PrayerController {
 
     private final PrayerIdentifierRepository prayerRepository;
