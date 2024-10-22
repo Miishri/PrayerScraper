@@ -13,23 +13,23 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/prayer")
 public class PrayerController {
 
     private final PrayerIdentifierRepository prayerRepository;
     private long currentDay = LocalDate.now().getDayOfYear();
 
-    @GetMapping("/current")
+    @GetMapping()
     public PrayerIdentifier getCurrentPrayer() {
         return prayerRepository.findById(currentDay).get();
     }
 
-    @GetMapping("/prayer/{prayerId}")
+    @GetMapping("/{prayerId}")
     public PrayerIdentifier getPrayerById(@PathVariable Long prayerId) {
         return prayerRepository.findById(prayerId).orElse(prayerRepository.findById(currentDay).get());
     }
 
-    @GetMapping("/prayers")
+    @GetMapping("/all")
     public List<PrayerIdentifier> getAllPrayers() {
         return prayerRepository.findAll();
     }
