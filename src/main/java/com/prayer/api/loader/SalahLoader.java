@@ -23,8 +23,7 @@ public class SalahLoader implements CommandLineRunner {
         Scraper scraper = new Scraper( prayerIdentifierRepository,prayerRepository, 1);
 
         if (prayerRepository.findAll().isEmpty()) {
-            scraper.startConnection();
-            scraper.loadYearlyPrayers();
+
 
         }
     }
