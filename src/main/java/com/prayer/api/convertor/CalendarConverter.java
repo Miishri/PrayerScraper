@@ -15,8 +15,8 @@ public class CalendarConverter {
             "Sep", "Oct", "Nov", "Dec"
     );
 
-    public String convertToHijri(String month, int day) {
-        double jdn = calculateJDN(Year.now().getValue(), getMonthInt(month), day);
+    public String convertToHijri(int month, int day, int year) {
+        double jdn = calculateJDN(year, month, day);
         double HIJRI_EPOCH = 1948439.5;
         double daysSinceHijriEpoch = jdn - HIJRI_EPOCH;
 
@@ -62,7 +62,29 @@ public class CalendarConverter {
         return hijriMonths[month - 1];
     }
 
-    private int getMonthInt(String month) {
-        return georgianMonths.indexOf(month) + 1;
+    public String getMonth(int month) {
+        return georgianMonths.get(month - 1);
+    }
+
+    public String calculateDayOfWeek(int day, int month, int year) {
+        if (month == 1) {
+            month = 13;
+            year--;
+        } else if (month == 2) {
+            month = 14;
+            year--;
+        }
+
+        int k = day;
+        int m = month;
+        int D = year % 100;
+        int C = year / 100;
+
+        int f = k + (13 * (m + 1)) / 5 + D + D / 4 + C / 4 - 2 * C;
+        int dayOfWeek = (f % 7 + 7) % 7;
+
+        String[] days = { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
+        return days[dayOfWeek];
     }
 }

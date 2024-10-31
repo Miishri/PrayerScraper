@@ -9,7 +9,7 @@ import lombok.*;
 @Table
 @NoArgsConstructor
 @AllArgsConstructor
-public class DailyPrayer {
+public class Prayer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,4 +24,6 @@ public class DailyPrayer {
     private String asr;
     private String maghrib;
     private String isha;
+
+    private String scrapedSite;
 }
